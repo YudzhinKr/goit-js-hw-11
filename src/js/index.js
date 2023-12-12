@@ -24,9 +24,8 @@ searchForm.addEventListener('submit', async function (event) {
     currentPage = 1;
     loadMoreBtn.style.display = 'none';
 
-    // Очистіть попередні картки перед додаванням нових
     const imageGallery = document.getElementById('imageGallery');
-    imageGallery.innerHTML = ''; // Очищаємо вміст галереї
+    imageGallery.innerHTML = '';
   }
 
   try {

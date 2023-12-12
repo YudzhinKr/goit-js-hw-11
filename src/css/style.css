@@ -44,10 +44,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px 30px;
+  justify-content: flex-start;
 }
 
 .photo-card {
-  flex: calc(25% - 30px);
+  flex-basis: calc(25% - 30px);
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -93,4 +94,7 @@
 .info-item {
   font-size: 14px;
   text-align: center;
+}
+.result-counter {
+  color: #fff;
 }

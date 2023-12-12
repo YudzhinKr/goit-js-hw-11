@@ -1,20 +1,17 @@
 import Notiflix from 'notiflix';
 
 export function handleSearchResults(data, gallery, loadMoreBtn) {
-  if (data.totalHits === 0) {
-    Notiflix.Notify.info(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
-    loadMoreBtn.style.display = 'none';
-    return;
-  }
-
+  const resultCounter = document.getElementById('resultCounter');
   const images = data.hits;
+
+  gallery.innerHTML = '';
 
   images.forEach(image => {
     const card = createImageCard(image);
     gallery.appendChild(card);
   });
+
+  resultCounter.textContent = `Found: ${data.totalHits} images`;
 
   if (images.length < data.totalHits) {
     loadMoreBtn.style.display = 'block';
@@ -27,28 +24,21 @@ export function handleSearchResults(data, gallery, loadMoreBtn) {
 }
 
 export function createImageCard(image) {
-  const card = document.createElement('div');
-  card.className = 'photo-card';
+  const cardHTML = `
+    <div class="photo-card">
+      <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
+      <div class="info">
+        <p class="info-item"><b>Likes:</b> <span>${image.likes}</span></p>
+        <p class="info-item"><b>Views:</b> <span>${image.views}</span></p>
+        <p class="info-item"><b>Comments:</b> <span>${image.comments}</span></p>
+        <p class="info-item"><b>Downloads:</b> <span>${image.downloads}</span></p>
+      </div>
+    </div>
+  `;
 
-  const img = document.createElement('img');
-  img.src = image.webformatURL;
-  img.alt = image.tags;
-  img.loading = 'lazy';
-
-  const info = document.createElement('div');
-  info.className = 'info';
-
-  ['Likes', 'Views', 'Comments', 'Downloads'].forEach(infoItem => {
-    const p = document.createElement('p');
-    p.className = 'info-item';
-    p.innerHTML = `<b>${infoItem}:</b> <span>${
-      image[infoItem.toLowerCase()]
-    }</span>`;
-    info.appendChild(p);
-  });
-
-  card.appendChild(img);
-  card.appendChild(info);
+  const card = document
+    .createRange()
+    .createContextualFragment(cardHTML).firstElementChild;
 
   return card;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +19,7 @@
         />
         <button class="btn-search" type="submit" id="searchBtn">Search</button>
       </form>
+      <p id="resultCounter" class="result-counter">Found: 0 images</p>
     </header>
     <main class="main-magic">
       <div class="gallery" id="imageGallery"></div>
@@ -27,8 +28,8 @@
       </button>
     </main>
     <footer></footer>
-    <script type="module" src="./js/index.js"></script>
-    <script type="module" src="./js/api.js"></script>
-    <script type="module" src="./js/gallery.js"></script>
+    <script src="./js/index.js" type="module"></script>
+    <script src="./js/api.js" type="module"></script>
+    <script src="./js/gallery.js" type="module"></script>
   </body>
 </html>
