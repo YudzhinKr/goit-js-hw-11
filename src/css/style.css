@@ -1,3 +1,5 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
 .header-input {
   background-color: teal;
   padding: 20px;
@@ -27,6 +29,7 @@
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .btn-search:hover {
   background-color: teal;
   color: white;
@@ -64,6 +67,7 @@
   height: 80%;
   display: block;
 }
+
 .load-more {
   display: none;
   margin: 20px auto;
@@ -81,9 +85,11 @@
   color: teal;
   border-color: teal;
 }
+
 .info {
   display: flex;
 }
+
 .info-item {
   font-size: 14px;
   text-align: center;

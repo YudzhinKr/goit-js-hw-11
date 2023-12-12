@@ -4,33 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>goit-js-hw-11</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="stylesheet" href="./style.css">
+
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
- <header class="header-input">
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        id="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button class="btn-search" type="submit" id="searchBtn">Search</button>
-</header>
-<main class="main-magic">
-<div class="gallery" id="imageGallery">
-
-</div>
-      </div>
-   
-    </form>
-       <button type="button" class="load-more" id="loadMoreBtn">
+    <header class="header-input">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          id="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="btn-search" type="submit" id="searchBtn">Search</button>
+      </form>
+    </header>
+    <main class="main-magic">
+      <div class="gallery" id="imageGallery"></div>
+      <button type="button" class="load-more" id="loadMoreBtn">
         Load more
       </button>
     </main>
     <footer></footer>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/api.js"></script>
+    <script type="module" src="./js/gallery.js"></script>
   </body>
 </html>
