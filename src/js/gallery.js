@@ -4,8 +4,6 @@ export function handleSearchResults(data, gallery, loadMoreBtn) {
   const resultCounter = document.getElementById('resultCounter');
   const images = data.hits;
 
-  gallery.innerHTML = '';
-
   images.forEach(image => {
     const card = createImageCard(image);
     gallery.appendChild(card);
@@ -13,13 +11,18 @@ export function handleSearchResults(data, gallery, loadMoreBtn) {
 
   resultCounter.textContent = `Found: ${data.totalHits} images`;
 
-  if (images.length < data.totalHits) {
+  if (gallery.children.length < data.totalHits) {
     loadMoreBtn.style.display = 'block';
   } else {
     loadMoreBtn.style.display = 'none';
-    Notiflix.Notify.info(
-      "We're sorry, but you've reached the end of search results."
-    );
+
+    if (data.totalHits === 0) {
+      Notiflix.Notify.info("We're sorry, but no results were found.");
+    } else {
+      Notiflix.Notify.info(
+        "We're sorry, but you've reached the end of search results."
+      );
+    }
   }
 }
 
