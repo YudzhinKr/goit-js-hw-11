@@ -33,7 +33,7 @@ searchForm.addEventListener('submit', async function (event) {
   try {
     const data = await fetchImages(currentQuery, currentPage, perPage);
     handleSearchResults(data, imageGallery, loadMoreBtn);
-    if (data.totalHits > 0) {
+    if (data.totalHits > 40) {
       loadMoreBtn.style.display = 'block';
     }
   } catch (error) {
